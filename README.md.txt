@@ -25,7 +25,7 @@ To improve programming and algorithmic problem-solving skills using Python and m
 - `Activity8-Evidence/` — screenshots of accepted submissions and badge evidence
 
 ## HackerRank Profile
-Add your public HackerRank profile URL here.
+https://www.hackerrank.com/profile/cherrycherryn05.
 
 ## Learning Outcomes
 - Practised Python functions, loops, lists, and dictionaries.
