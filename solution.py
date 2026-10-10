@@ -1,17 +1,20 @@
 
-def timeConversion(s):
-    period = s[-2:]
-    hour = int(s[:2])
-    rest = s[2:-2]
+def compareTriplets(a, b):
+    alice = 0
+    bob = 0
 
-    if period == "AM":
-        hour = 0 if hour == 12 else hour
-    else:
-        hour = 12 if hour == 12 else hour + 12
+    for i in range(3):
+        if a[i] > b[i]:
+            alice += 1
+        elif a[i] < b[i]:
+            bob += 1
 
-    return f"{hour:02d}{rest}"
+    return [alice, bob]
 
 
 if __name__ == "__main__":
-    s = input().strip()
-    print(timeConversion(s))
+    a = list(map(int, input().split()))
+    b = list(map(int, input().split()))
+
+    result = compareTriplets(a, b)
+    print(*result)
