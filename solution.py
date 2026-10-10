@@ -1,15 +1,17 @@
 
-n, q = map(int, input().split())
+def timeConversion(s):
+    period = s[-2:]
+    hour = int(s[:2])
+    rest = s[2:-2]
 
-sequences = [[] for _ in range(n)]
-lastAnswer = 0
-
-for _ in range(q):
-    query, x, y = map(int, input().split())
-    idx = (x ^ lastAnswer) % n
-
-    if query == 1:
-        sequences[idx].append(y)
+    if period == "AM":
+        hour = 0 if hour == 12 else hour
     else:
-        lastAnswer = sequences[idx][y % len(sequences[idx])]
-        print(lastAnswer)
+        hour = 12 if hour == 12 else hour + 12
+
+    return f"{hour:02d}{rest}"
+
+
+if __name__ == "__main__":
+    s = input().strip()
+    print(timeConversion(s))
