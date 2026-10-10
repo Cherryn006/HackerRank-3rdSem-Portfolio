@@ -1,20 +1,21 @@
 
-def compareTriplets(a, b):
-    alice = 0
-    bob = 0
+def matchingStrings(stringList, queries):
+    frequency = {}
 
-    for i in range(3):
-        if a[i] > b[i]:
-            alice += 1
-        elif a[i] < b[i]:
-            bob += 1
+    for s in stringList:
+        frequency[s] = frequency.get(s, 0) + 1
 
-    return [alice, bob]
+    return [frequency.get(query, 0) for query in queries]
 
 
 if __name__ == "__main__":
-    a = list(map(int, input().split()))
-    b = list(map(int, input().split()))
+    n = int(input().strip())
+    stringList = [input().strip() for _ in range(n)]
 
-    result = compareTriplets(a, b)
-    print(*result)
+    q = int(input().strip())
+    queries = [input().strip() for _ in range(q)]
+
+    result = matchingStrings(stringList, queries)
+
+    for count in result:
+        print(count)
