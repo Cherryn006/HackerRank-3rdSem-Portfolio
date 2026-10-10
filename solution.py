@@ -1,20 +1,15 @@
-def diagonalDifference(arr):
-    n = len(arr)
-    primary_sum = 0
-    secondary_sum = 0
 
-    for i in range(n):
-        primary_sum += arr[i][i]
-        secondary_sum += arr[i][n - 1 - i]
+n, q = map(int, input().split())
 
-    return abs(primary_sum - secondary_sum)
+sequences = [[] for _ in range(n)]
+lastAnswer = 0
 
+for _ in range(q):
+    query, x, y = map(int, input().split())
+    idx = (x ^ lastAnswer) % n
 
-if __name__ == "__main__":
-    n = int(input().strip())
-    arr = []
-
-    for _ in range(n):
-        arr.append(list(map(int, input().split())))
-
-    print(diagonalDifference(arr))
+    if query == 1:
+        sequences[idx].append(y)
+    else:
+        lastAnswer = sequences[idx][y % len(sequences[idx])]
+        print(lastAnswer)
